@@ -27,10 +27,10 @@ public class OrderRepository {
         if(!partnerOrderLists.containsKey(partnerId)) partnerOrderLists.put(partnerId,new HashSet<String>());
         partnerOrderLists.get(partnerId).add(orderId);
         int n = partnerOrderLists.get(partnerId).size();
-        System.out.println(n);
+//        System.out.println(n);
         if(!deliveryPartners.containsKey(partnerId)) deliveryPartners.put(partnerId, new DeliveryPartner(partnerId));
         deliveryPartners.get(partnerId).setNumberOfOrders(n);
-        System.out.println(deliveryPartners.get(partnerId).getNumberOfOrders());
+//        System.out.println(deliveryPartners.get(partnerId).getNumberOfOrders());
     }
 
     public Order getOrderById(String orderId) {
