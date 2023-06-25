@@ -38,7 +38,7 @@ public class OrderRepository {
     }
 
     public DeliveryPartner getPartnerById(String partnerId) {
-        System.out.println(deliveryPartners.getOrDefault(partnerId,null));
+//        System.out.println(deliveryPartners.getOrDefault(partnerId,null));
         return deliveryPartners.getOrDefault(partnerId,null);
     }
 
