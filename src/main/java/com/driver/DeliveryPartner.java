@@ -21,4 +21,8 @@ public class DeliveryPartner {
     public void setNumberOfOrders(Integer numberOfOrders) {
         this.numberOfOrders = numberOfOrders;
     }
+
+    public String toString(){
+        return "id="+this.id+"\n"+"no orders="+this.numberOfOrders;
+    }
 }
