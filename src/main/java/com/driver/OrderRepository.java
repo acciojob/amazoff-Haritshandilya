@@ -47,7 +47,7 @@ public class OrderRepository {
     }
 
     public Integer getOrderCountByPartnerId(String partnerId) {
-        System.out.println(deliveryPartners.getOrDefault(partnerId,null));
+//        System.out.println(deliveryPartners.getOrDefault(partnerId,null));
         if(deliveryPartners.getOrDefault(partnerId,null)==null) return 0;
         return deliveryPartners.getOrDefault(partnerId,null).getNumberOfOrders();
     }
@@ -122,7 +122,7 @@ public class OrderRepository {
     }
 
     public void deleteOrderById(String orderId) {
-        System.out.println("order is removed from orders : "+orders.remove(orderId));
+//        System.out.println("order is removed from orders : "+orders.remove(orderId));
         if(orderPartnerPairs.containsKey(orderId)){
             String deliveryPartnerId = orderPartnerPairs.get(orderId);
             if(partnerOrderLists.containsKey(deliveryPartnerId) && partnerOrderLists.get(deliveryPartnerId).contains(orderId)) partnerOrderLists.get(deliveryPartnerId).remove(orderId);
