@@ -32,7 +32,7 @@ public class OrderRepository {
 //        System.out.println(n);
         DeliveryPartner dp = deliveryPartners.getOrDefault(partnerId,new DeliveryPartner(partnerId));
         dp.setNumberOfOrders(n);
-
+        deliveryPartners.put(partnerId,dp);
         
 //        System.out.println(deliveryPartners.get(partnerId).getNumberOfOrders());
     }
@@ -47,6 +47,7 @@ public class OrderRepository {
     }
 
     public Integer getOrderCountByPartnerId(String partnerId) {
+        System.out.println(deliveryPartners.getOrDefault(partnerId,null));
         if(deliveryPartners.getOrDefault(partnerId,null)==null) return 0;
         return deliveryPartners.getOrDefault(partnerId,null).getNumberOfOrders();
     }
@@ -66,8 +67,9 @@ public class OrderRepository {
     }
 
     public Integer getCountOfUnassignedOrders() {
-        return orders.size()-orderPartnerPairs.size();
-    }
+
+            return orders.size()-orderPartnerPairs.size();
+        }
 
     public Integer getOrdersLeftAfterGivenTimeByPartnerId(int hours, int mins, String partnerId) {
         Set<String> partnerOrders = partnerOrderLists.getOrDefault(partnerId,null);
@@ -120,7 +122,7 @@ public class OrderRepository {
     }
 
     public void deleteOrderById(String orderId) {
-        if(orders.containsKey(orderId)) orders.remove(orderId);
+        System.out.println("order is removed from orders : "+orders.remove(orderId));
         if(orderPartnerPairs.containsKey(orderId)){
             String deliveryPartnerId = orderPartnerPairs.get(orderId);
             if(partnerOrderLists.containsKey(deliveryPartnerId) && partnerOrderLists.get(deliveryPartnerId).contains(orderId)) partnerOrderLists.get(deliveryPartnerId).remove(orderId);
